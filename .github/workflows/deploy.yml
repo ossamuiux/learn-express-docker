@@ -18,7 +18,7 @@ jobs:
 
       # ssh agent로 ssh 인증 준비
       - name: Set up SSH
-        uses: webfactory/ssh-agent@v0.8.1
+        uses: webfactory/ssh-agent@v0.5.4
         with:
           ssh-private-key: ${{ secrets.EC2_SSH_KEY }}
 
