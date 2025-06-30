@@ -6,18 +6,13 @@ services:
     # 컨테이너 내부 3001포트를 로컬 3001에 연결
     ports:
       - '3001:3001'
-    # .(현재폴더)를 컨테이너 내부 /app에 마운트, 컨테이너 내부 작업이 로컬에 반영
-    # volumes:
-    #   - .:/app
     # 환경변수파일 사용
     env_file:
       - .env
     # 환경변수
     environment:
-      # 개발시 dev디펜던시 설치됨
-      # - NODE_ENV=development
-      # 빌드시 사용, dev디펜던시 빌드에 포함안됨
-      - NODE_ENV=production
+      # dev디펜던시 설치
+      - NODE_ENV=development
       # 컨테이너 내부 db정보
       - DB_HOST=db
       - DB_USER=root
@@ -32,6 +27,7 @@ services:
     restart: always
     environment:
       MYSQL_ROOT_PASSWORD: 1234
+      TZ: Asia/Seoul
     # 초기 sql 스크립트 마운트하여 한번만 실행
     volumes:
       - ./nodejs_db.sql:/docker-entrypoint-initdb.d/nodejs_db.sql

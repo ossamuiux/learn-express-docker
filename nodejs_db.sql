@@ -19,8 +19,6 @@ CREATE TABLE user (
     -- DEFAULT: 현재날짜, 시간을 기본값으로 저장
     created_at DATETIME NOT NULL DEFAULT NOW()
 );
--- 테이블 스키마 확인
--- DESC user;
 
 -- DROP TABLE IF EXISTS comment;
 CREATE TABLE comment (
@@ -30,8 +28,6 @@ CREATE TABLE comment (
     comment VARCHAR(255) NOT NULL,
     created_at DATETIME NOT NULL DEFAULT NOW()
 );
--- 테이블 보기
--- SHOW TABLES;
 
 -- user_id는 자동증가, created_at은 DEFAULT로 자동으로 들어감
 INSERT INTO user (name, age, comment) VALUES ('ossam', 99, '안녕하세요. ossam입니다');
@@ -41,49 +37,4 @@ INSERT INTO user (name, age, comment) VALUES ('영희', 22, '반가워요. 영�
 INSERT INTO comment (user_id, comment) VALUES (1, 'ossam의 댓글');
 INSERT INTO comment (user_id, comment) VALUES (2, '철수의 댓글');
 
--- 모든 컬럼 조회
--- SELECT * FROM user;
--- SELECT * FROM comment;
-
--- 특정 컬럼 조회
--- SELECT name, age FROM user;
-
--- 조건에 맞는 컬럼 조회
--- SELECT name, age FROM user
--- WHERE name = '철수' AND age > 30;
-
--- SELECT name, age FROM user
--- WHERE name = '철수' OR name = 'ossam';
-
--- ORDER BY 컬럼명, 기본값 ASC(오름차순) DESC(내림차순)
--- SELECT user_id, name, age FROM user
--- WHERE name = '철수' OR name = 'ossam'
--- ORDER BY age DESC;
-
--- 조회 갯수 설정
--- SELECT user_id, name, age FROM user
--- ORDER BY age DESC
--- LIMIT 1;
-
--- 조회 갯수, 건너뛸 갯수 설정, 페이지네이션 구현시 사용
--- SELECT user_id, name, age FROM user
--- ORDER BY age DESC
--- LIMIT 1 OFFSET 1;
-
--- 로우 갯수
--- SELECT COUNT(*) FROM user;
-
--- 최대값
--- SELECT MAX(age) FROM user;
-
--- 날짜 형식 변경
--- SELECT name, DATE_FORMAT(created_at, '%Y년 %m월 %d일') as '가입일', created_at FROM user;
-
--- UPDATE user SET comment = '바꿀 내용' WHERE user_id = 2;
-
--- DELETE FROM user WHERE user_id = 2;
-
--- user의 이름, 나이, 댓글 가져오기
--- SELECT u.name, u.age, c.comment
--- FROM user AS u
--- LEFT JOIN comment AS c ON u.user_id = c.user_id;
+SHOW DATABASES;
