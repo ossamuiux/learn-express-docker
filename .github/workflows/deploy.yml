@@ -16,6 +16,12 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v3
 
+      # 호스트 키 등록
+      - name: Add EC2 Host to known_hosts
+        run: |
+          mkdir -p ~/.ssh
+          ssh-keyscan ${{ secrets.EC2_HOST }} >> ~/.ssh/known_hosts
+
       # ssh agent로 ssh 인증 준비
       - name: Set up SSH
         uses: webfactory/ssh-agent@v0.5.4
