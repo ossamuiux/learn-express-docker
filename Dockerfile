@@ -6,7 +6,6 @@ WORKDIR /app
 
 # package.json 및 package-lock.json 작업 디렉토리로 복사 후 의존성 설치
 COPY package.json package-lock.json ./
-# RUN npm install
 # 빌드시 dev디펜던시 제외 최소 구성만 설치
 ENV NODE_ENV=production
 RUN npm install --omit=dev
