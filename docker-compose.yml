@@ -24,6 +24,7 @@ services:
       - db
   db:
     image: mysql:8.0.42
+    # 사용자가 중지해도 재시작
     restart: always
     environment:
       MYSQL_ROOT_PASSWORD: 1234
