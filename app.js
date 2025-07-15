@@ -10,6 +10,7 @@ const indexRouter = require('./routes');
 const userRouter = require('./routes/user');
 const authRouter = require('./routes/auth');
 const profileRouter = require('./routes/profile');
+const postRouter = require('./routes/post');
 
 // dotenv 활성화
 dotenv.config();
@@ -56,6 +57,7 @@ app.use(indexRouter);
 app.use(userRouter);
 app.use(authRouter);
 app.use(profileRouter);
+app.use(postRouter);
 
 // 에러처리 미들웨어
 app.use((err, req, res, next) => {
