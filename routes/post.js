@@ -11,7 +11,7 @@ router.get('/post', (req, res) => {
 
   let query, params;
   if (!category) {
-    query = `SELECT *, DATE_FORMAT(created_at, '%Y.%m.%d %H:%m:%s') format_date
+    query = `SELECT *, DATE_FORMAT(created_at, '%Y.%m.%d %H:%m:%s') created_at
             FROM post
             ORDER BY created_at DESC
             LIMIT ? OFFSET ?`;
